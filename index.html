@@ -8,32 +8,78 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../unit-4-game/assets/css/meyerweb.css">
     <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../unit-4-game/assets/css/style.css">
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="../unit-4-game/assets/javascript/game.js"></script>
-
+   
+   
 </head>
 
 <body>
     <div class= "container-fluid">
-        <h1>Attack and Defend: Star Wars!</h1>
+        <h1 id="header">Attack and Defend: Star Wars!</h1>
 
-            <div class= "jumbotron">Characters</div>
+            <div class= "jumbotron" id="char-holder">
+                <div class="row">
+                        <div class="col-sm d-flex" id="solo">
+                            <div class="card flex-fill bg-info" id="soloImage">
+                                <img class="card-img-top charImage" src="assets/images/Han_Solo.jpg" alt="Han Solo">
+                                <div class="card-body text-center">
+                                    <button class="btn btn-dark text-center" value="soloHans">Han</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-3 d-flex" id="trooper">
+                            <div class="card flex-fill bg-info" id="trooperImage">
+                                <img class="card-img-top charImage" src="assets/images/storm-trooper.jpg" alt="Carl">
+                                <div class="card-body text-center">
+                                    <button class="btn btn-dark text-center" value="trooperCarl">Carl</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 d-flex" id="bacca">
+                            <div class="card flex-fill bg-info" id="baccaImage">
+                                <img class="card-img-top charImage" src="assets/images/chewy.jpeg" alt="Chewbacca">
+                                <div class="card-body text-center">
+                                    <button class="btn btn-dark text-center" value="baccaChew">Chewy</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 d-flex" id="vader">
+                            <div class="card flex-fill bg-info" id="vaderImage">
+                                <img class="card-img-top charImage" src="assets/images/DarthVader.jpg" alt="Darth Vader">
+                                <div class="card-body text-center">
+                                    <button class="btn btn-dark text-center" value="vaderDarth">Darth</button>
+                                </div>
+                             </div>
+                        </div>
+                </div>
+            </div>
+
+
 
             <div class="jumbotron" id="jumbo-fight">
 
-                <div class="row">
-                    <div class="col-6">Attackers</div>
-                    <div class="col-6">Defenders</div>
-                </div>
+                
+            </div>
+
+            <div class="jumbotron" id="jumbo-score">Scores
+
 
             </div>
 
-            <div class="jumbotron">Scores</div>
-
     </div>
 
-    
+<script
+src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../unit-4-game/assets/javascript/game.js"></script>
+
+
+
     
 </body>
+
+
+
 </html>

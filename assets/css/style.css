@@ -16,8 +16,12 @@ h1 {
     background-color: lightsteelblue;
 }
 
+.charImage {
+    height: 350px;
+    width: 100%;
+}
+
 #jumbo-fight {
     background: transparent;
     color: lightsteelblue;
 }
-
