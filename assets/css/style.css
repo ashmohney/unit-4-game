@@ -11,17 +11,18 @@ h1 {
     padding: 1%;
 }
 
-
-.jumbotron {
-    background-color: lightsteelblue;
+.container {
+    padding: 1%;
 }
 
 .charImage {
-    height: 350px;
+    height: 300px;
     width: 100%;
 }
 
-#jumbo-fight {
-    background: transparent;
-    color: lightsteelblue;
+.jumbotron {
+    background-color: lightsteelblue;
+    background:rgba(255,255,255,0.5);
 }
+
+

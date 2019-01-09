@@ -18,7 +18,7 @@
 
             <div class= "jumbotron" id="char-holder">
                 <div class="row">
-                        <div class="col-sm d-flex" id="solo">
+                        <div class="col-sm xcharacter" id="solo">
                             <div class="card flex-fill bg-info" id="soloImage">
                                 <img class="card-img-top charImage" src="assets/images/Han_Solo.jpg" alt="Han Solo">
                                 <div class="card-body text-center">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="col-3 d-flex" id="trooper">
+                        <div class="col-sm xcharacter" id="trooper">
                             <div class="card flex-fill bg-info" id="trooperImage">
                                 <img class="card-img-top charImage" src="assets/images/storm-trooper.jpg" alt="Carl">
                                 <div class="card-body text-center">
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 d-flex" id="bacca">
+                        <div class="col-sm xcharacter" id="bacca">
                             <div class="card flex-fill bg-info" id="baccaImage">
                                 <img class="card-img-top charImage" src="assets/images/chewy.jpeg" alt="Chewbacca">
                                 <div class="card-body text-center">
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3 d-flex" id="vader">
+                        <div class="col-sm xcharacter" id="vader">
                             <div class="card flex-fill bg-info" id="vaderImage">
                                 <img class="card-img-top charImage" src="assets/images/DarthVader.jpg" alt="Darth Vader">
                                 <div class="card-body text-center">
@@ -56,12 +56,54 @@
 
 
 
-            <div class="jumbotron" id="jumbo-fight">
+            <div class="jumbotron" id="fight-area">
+               
+
+                <div class="row">
+
+                    <div class="col-lg" id="attacker-area">
+                        <h3>To Play: Choose your Attacker by clicking a character button. </h3>
+
+                    </div>
+
+                    <div class="col-xsm" id="btn-area">button area
+
+                    </div>
+
+                    <div class="col-lg" id="defender-area">TESTING2
+
+                    </div>
+
+
+                </div>
 
                 
             </div>
 
-            <div class="jumbotron" id="jumbo-score">Scores
+            <div class="jumbotron" id="score-area">
+
+                    <h2 class="text-center">Attacker and Defender Scores:</h2>
+
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="text-center">Attacker</h3>
+                        <h3>Name: <span id="attacker-name"></span></h3>
+                        <h3>Health: <span id="attacker-health"></span></h3>
+                        <h3>Attack Power: <span id="attacker-power"></span></h3>
+                        <h3>Counter Attack: <span id="counter-attack"></span></h3>
+                        <span class="mt-4" id="attacker-span"></span>
+
+            
+                    </div>
+                    <div class="col-6">
+                        <h3 class="text-center">Defender</h3>
+                        <h3>Name: <span id="defender-name"></span></h3>
+                        <h3>Health: <span id="defender-health"></span></h3>
+                        <h3>Attack Power: <span id="defender-power"></span></h3>
+                        <h3>Counter Attack: <span id="counter-defend"></span></h3>  
+                        <span class="mt-4" id="defender-span"></span>
+                    </div>
+                </div>
 
 
             </div>
