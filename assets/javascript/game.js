@@ -1,118 +1,94 @@
-/* 
+/* Version 2:
+Sticking with star wars characters and theme for Number Guess Game (Crystal Game in HW) due to time constraints
 
-Attack and Defend Game:
+Game with four characters, each has a random number assigned between 1-12
+The random number changes with every win or loss
 
-Four characters
-User chooses/clicks character for attack 
-        card moves to attacker-area
-        text to ask user to choose defender pops into defender-area
-then user clicks character as defender
-        card moves to defender-area
-        Attack button appears
-User clicks Attack button:
-    Attacker wins/loses points
-    Defender wins/loses points
-    all documented in the score-area
+Character click/numbers will add to previous click/numbers in Your Number area
+Unitl the Your Number is >= Computer Number, registering wins and losses on screen
 
-Health Points and Attack points reflect ups and downs. 
-
-If Attacker wins:
-    that character gains higher Attack-Points power. 
-    User chooses another character as defender
-    Restart button appears
-
-If Attakcer loses: 
-    "You lose" --> maybe not as an alert (put in div?)
-    Restart button appears
-
-
-JSON objects for each character:
-    name, health points, attack points, base points counter attack, etc. 
-
-
-if/else loops or switches?? 
-  
 */
+
+//DOM ready
 $(document).ready (function() {
+    console.log("Let's get ready to Rumble!");
 
 
-
-//Setting Global Vars
-
-//Characters
-var hanSolo;
-var stormTrooper;
-var chewBacca; 
-var darthVader;
-
-//Game Set
-var characters = [];
-var attacker = null;
-var defendersArr = [];
-var defender = null;
+    //Global vars
+    var hanSolo = Math.floor(Math.random() * (13 - 1)) + 1;
+    var trooperCarl = Math.floor(Math.random() * (13 - 1)) + 1;
+    var chewBacca = Math.floor(Math.random() * (13 - 1)) + 1;
+    var darthVader = Math.floor(Math.random() * (13 - 1)) + 1;
+    var clickVar = 0;
 
 
+    // set button values
+    document.getElementById("hanSolo").value = hanSolo;
+    document.getElementById("trooperCarl").value = trooperCarl;
+    document.getElementById("chewBacca").value = chewBacca;
+    document.getElementById("darthVader").value = darthVader;
 
-//Chacter Objects at start function:
+    var randoComp = Math.floor(Math.random() * (121-19)) +19;   //random number for computer number 
 
-        function startGame() {   
-                hanSolo = {
-                        id: 0,
-                        name: "Han Solo",
-                        healthPoints: 120,
-                        baseAttack:10,
-                        attackPower: 10,    
-                        counterAttackPower: 8,
-                        img:"assets/images/Han_Solo.jpg",
-                        value: "soloHans",
-                    },
+    var yourScore = 0;                                          //increases during game, resets at win or loss
 
-                stormTrooper = {
-                        id: 1,
-                        name: "Carl",
-                        healthPoints: 100,
-                        baseAttack: 8,
-                        attackPower: 8,
-                        counterAttackPower: 5,
-                        img:"assets/images/storm-trooper.jpg",
-                        value: "trooperCarl",
-                    },
+    var wins = 0;                                               //increases when randoComp is equal to yourScore
+    var losses = 0;                                             //increases when yourScore is greater than randoComp
 
-                chewBacca = {
-                        id: 2,
-                        name: "Chewy",
-                        healthPoints: 150,
-                        baseAttack:9,
-                        attackPower: 9,
-                        counterAttackPower: 10,
-                        img:"assets/images/chewy.jpg",
-                        value: "baccaChew",
-                    },
-
-                darthVader = {
-                        id: 3,
-                        name: "Darth Vader",
-                        healthPoints: 100,
-                        baseAttack: 12,
-                        attackPower: 12,
-                        counterAttackPower: 12,
-                        img:"assets/images/DarthVader.jpg",
-                        value: "vaderDarth",
-                    },
-                
-
+    
+    // clear function to be called in scoreCheck function
+    var clearFunc = function() {
             
+            yourScore = 0;
+            $("#user-num").text(yourScore);
             
-            $(".xcharacter").on("click", function(event) {
-                console.log("WTF");
+            randoComp = Math.floor(Math.random() * (121 - 19)) + 19;
+            $("#comp-num").text(randoComp);
 
-            });
+            hanSolo = Math.floor(Math.random() * (13 - 1)) + 1;
+            trooperCarl = Math.floor(Math.random() * (13 - 1)) + 1;
+            chewBacca = Math.floor(Math.random() * (13 - 1)) + 1;
+            darthVader = Math.floor(Math.random() * (13 - 1)) + 1;
+
+            document.getElementById("hanSolo").value = hanSolo;
+            document.getElementById("trooperCarl").value = trooperCarl;
+            document.getElementById("chewBacca").value = chewBacca;
+            document.getElementById("darthVader").value = darthVader;
+     };
+
+
+    // score check function to be called in the buttons below
+    var scoreCheck = function() {
+
+        if(yourScore > randoComp) {
+            losses = (losses + 1);
+            $("#loss-num").text(losses);
+            alert("You lose!");
+            clearFunc();
+        } else if(yourScore == randoComp) {
+            wins = (wins + 1);
+            $("#wins-num").text(wins);
+            alert("You Win!");
+            clearFunc();
         };
-    startGame();
-            
+    };
+    
+    // writing in numbers into the apporpriate divs/spans
+    $("#user-num").text(yourScore);
+    $("#comp-num").text(randoComp);
+    $("#wins-num").text(wins);
+    $("#loss-num").text(losses);
 
+    // Making the buttons work
+    $(".xcharacter").click(function() {
+        clickVar = $(this).val();
+        yourScore = parseInt(clickVar, 10) + yourScore;
+        $("#user-num").text(yourScore);
+        scoreCheck();
+    });
 
+    
 
-
+    
 
 });

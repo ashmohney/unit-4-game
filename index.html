@@ -3,119 +3,112 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Attack and Defend</title>
+    <title>Number Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" type="text/css" media="screen" href="../unit-4-game/assets/css/meyerweb.css">
     <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../unit-4-game/assets/css/style.css">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="../unit-4-game/assets/javascript/game.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
    
    
 </head>
 
 <body>
     <div class= "container-fluid">
-        <h1 id="header">Attack and Defend: Star Wars!</h1>
+        <h1 id="header">Number Guess: Star Wars!</h1>
 
-            <div class= "jumbotron" id="char-holder">
-                <div class="row">
-                        <div class="col-sm xcharacter" id="solo">
-                            <div class="card flex-fill bg-info" id="soloImage">
-                                <img class="card-img-top charImage" src="assets/images/Han_Solo.jpg" alt="Han Solo">
-                                <div class="card-body text-center">
-                                    <button class="btn btn-dark text-center" value="soloHans">Han</button>
-                                </div>
-                            </div>
-                        </div>
+        <div class="jumbotron" id="score-area">
 
-                        <div class="col-sm xcharacter" id="trooper">
-                            <div class="card flex-fill bg-info" id="trooperImage">
-                                <img class="card-img-top charImage" src="assets/images/storm-trooper.jpg" alt="Carl">
-                                <div class="card-body text-center">
-                                    <button class="btn btn-dark text-center" value="trooperCarl">Carl</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm xcharacter" id="bacca">
-                            <div class="card flex-fill bg-info" id="baccaImage">
-                                <img class="card-img-top charImage" src="assets/images/chewy.jpeg" alt="Chewbacca">
-                                <div class="card-body text-center">
-                                    <button class="btn btn-dark text-center" value="baccaChew">Chewy</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm xcharacter" id="vader">
-                            <div class="card flex-fill bg-info" id="vaderImage">
-                                <img class="card-img-top charImage" src="assets/images/DarthVader.jpg" alt="Darth Vader">
-                                <div class="card-body text-center">
-                                    <button class="btn btn-dark text-center" value="vaderDarth">Darth</button>
-                                </div>
-                             </div>
-                        </div>
-                </div>
-            </div>
+                <h3 class="text-center">Click the characters to match the number.</h3>
+                <br>
 
+                <div class="row text-center">
 
-
-            <div class="jumbotron" id="fight-area">
-               
-
-                <div class="row">
-
-                    <div class="col-lg" id="attacker-area">
-                        <h3>To Play: Choose your Attacker by clicking a character button. </h3>
-
+                    <div class="col-4">
+                        <h3 class="text-center">Computer Number:</h3>
+                        <h3><span id="comp-num"></span></h3>
                     </div>
 
-                    <div class="col-xsm" id="btn-area">button area
-
+                    <div class="col-4">
+                        <h3 class="text-center">Your Number:</h3>
+                        <h3><span id="user-num"></span></h3>
                     </div>
 
-                    <div class="col-lg" id="defender-area">TESTING2
-
+                    <div class="col-2">
+                        <h3 class="text-center">Wins:</h3>
+                        <h3><span id="wins-num"></span></h3>
                     </div>
 
+                    <div class="col-2">
+                        <h3 class="text-center">Losses:</h3>
+                        <h3><span id="loss-num"></span></h3>
+                    </div>
 
                 </div>
+        </div>
 
-                
-            </div>
 
-            <div class="jumbotron" id="score-area">
 
-                    <h2 class="text-center">Attacker and Defender Scores:</h2>
 
-                <div class="row">
-                    <div class="col-6">
-                        <h3 class="text-center">Attacker</h3>
-                        <h3>Name: <span id="attacker-name"></span></h3>
-                        <h3>Health: <span id="attacker-health"></span></h3>
-                        <h3>Attack Power: <span id="attacker-power"></span></h3>
-                        <h3>Counter Attack: <span id="counter-attack"></span></h3>
-                        <span class="mt-4" id="attacker-span"></span>
 
-            
+        <div class= "jumbotron" id="char-holder">
+            <div class="row">
+                    <div class="col-sm" id="solo">
+
+                        <div class="card flex-fill bg-info" id="soloImage">
+                                <div class="card-body text-center">
+                                    <button class="btn btn-dark text-center xcharacter" id="hanSolo">Han</button>
+                                </div>
+                            <img class="card-img-top charImage" src="assets/images/Han_Solo.jpg" alt="Han Solo">
+                            
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <h3 class="text-center">Defender</h3>
-                        <h3>Name: <span id="defender-name"></span></h3>
-                        <h3>Health: <span id="defender-health"></span></h3>
-                        <h3>Attack Power: <span id="defender-power"></span></h3>
-                        <h3>Counter Attack: <span id="counter-defend"></span></h3>  
-                        <span class="mt-4" id="defender-span"></span>
+
+                    <div class="col-sm" id="trooper">
+
+                        <div class="card flex-fill bg-info" id="trooperImage">
+                                <div class="card-body text-center">
+                                    <button class="btn btn-dark text-center xcharacter" value="trooperCarl" id="trooperCarl">Carl</button>
+                                </div>
+                            <img class="card-img-top charImage" src="assets/images/storm-trooper.jpg" alt="Carl">
+                            
+                        </div>
                     </div>
-                </div>
 
+                    <div class="col-sm" id="bacca">
 
+                        <div class="card flex-fill bg-info" id="baccaImage">
+                                <div class="card-body text-center">
+                                    <button class="btn btn-dark text-center xcharacter" id="chewBacca">Chewy</button>
+                                </div>
+                            <img class="card-img-top charImage" src="assets/images/chewy.jpeg" alt="Chewbacca">
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-sm" id="vader">
+
+                        <div class="card flex-fill bg-info" id="vaderImage">
+                                <div class="card-body text-center">
+                                    <button class="btn btn-dark text-center xcharacter" id="darthVader">Darth</button>
+                                </div>
+                            <img class="card-img-top charImage" src="assets/images/DarthVader.jpg" alt="Darth Vader">
+                            
+                        </div>
+                    </div>
             </div>
+        </div>
+    
 
     </div>
 
-<script
-src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="../unit-4-game/assets/javascript/game.js"></script>
+
+
+
 
 
 
